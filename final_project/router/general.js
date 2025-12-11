@@ -5,11 +5,6 @@ let users = require("./auth_users.js").users;
 const public_users = express.Router();
 
 
-// Helper function to check if a user already exists
-const doesExist = (username) => {
-  return users.some((user) => user.username === username);
-};
-
 // Post to register a new user
 public_users.post("/register", (req, res) => {
   const username = req.body.username;
@@ -19,7 +14,7 @@ public_users.post("/register", (req, res) => {
     return res.status(404).json({ message: "Unable to register user." });
   }
 
-  if (doesExist(username)) {
+  if (isValid(username)) {
     return res.status(404).json({ message: "User already exists!" });
   }
 
