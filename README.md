@@ -123,4 +123,3 @@ Apache License 2.0
 ## Author
 
 **Mario Padilla**
-**ByGaloZs**
